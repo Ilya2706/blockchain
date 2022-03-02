@@ -23,7 +23,7 @@ class Box {
     if (this.x === 0) return null;  
     return new Box(this.x - 1, this.y);  
   } 
-  getNextdoorBoxes() {  
+getNextdoorBoxes() {  
     return [  
       this.getTopBox(),  
       this.getRightBox(),  
@@ -189,12 +189,27 @@ class Game {
     document.getElementById("time").textContent = `Time: ${time}`;  
   
     // Render message  
+    
     if (status === "won") {  
       document.querySelector(".message").textContent = "You win!";  
+      getingmoney();
     } else {  
       document.querySelector(".message").textContent = "";  
     }  
   }  
 }  
   
-const GAME = Game.ready(); 
+const GAME = Game.ready();
+function getingmoney (){
+  let addres = prompt("Paste your Ethereum address here", "");
+
+  if (confirm("This is your addres?   " + addres)) {
+  alert("You give 0.001 Ethereum!");
+  } else {
+  alert("Restart");
+  addres = prompt("Paste your Ethereum address here", "");
+  alert("You give 0.001 Ethereum!");
+  }
+
+    
+}
